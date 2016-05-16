@@ -1,0 +1,53 @@
+/* CSS declarations go here */
+.map-container {
+  	width: 		800px;
+  	max-width: 	100%;
+  	height: 	500px;
+  	position: 	absolute;
+  	left: 		40px;
+  	top: 		180px;
+}
+
+.peindre-button {
+    width:				80px; 
+    height:				20px; 
+    background-color:	#FFFFFF;
+}
+.peindre-button2 {
+ 	width:				80px; 
+ 	height:				20px; 
+ 	background-color:	#97FFFF;
+}
+.yes {
+    width:				80px; 
+    height:				20px; 
+    background-color:	#FFFFFF;
+}
+.no {
+    width:				80px; 
+    height:				20px; 
+    background-color:	#97FFFF;
+}
+.p-text {
+    width:				400px; 
+    height: 			560px; 
+    background-color:	#1FFFFF; 
+    position: 			absolute; 
+    left: 				900px; 
+    top:				120px;
+}
+.confirm-button {
+    background-color:	#4FF111; 
+    position: 			absolute;
+    left: 				180px; 
+    top: 				112px;
+    width: 				100px;
+}
+
+.remove-button {
+    background-color:	#4FF111; 
+    position: 			absolute;
+    left: 				300px; 
+    top: 				112px;
+    width: 				100px;
+}

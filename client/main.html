@@ -1,0 +1,47 @@
+<head>
+  <title>simple</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+
+<body>
+  <h1>Welcome to Meteor!</h1>
+  {{> infoprofil}}
+  {{> exampleMap}}
+</body>
+
+
+<template name = "infoprofil">
+
+  <p id = "test">
+    To find the person who you want
+    Please click the button.
+  </p>
+
+  <p class = "p-text" id = "text">
+    Please have a choice...
+  </p> 
+
+  <form>
+    <input type="text" name="Input" id = "city" />
+  </form>
+
+  <button class = "yes"     id = "dota">        Dota      </button>
+  <button class = "yes"     id = "tondre">      Tondre    </button>
+  <button class = "yes"     id = "peindre">     Peindre   </button>
+  <button class = "yes"     id = "cafe">        Cafe      </button>
+  <button class = "yes"     id = "LOL">         LOL       </button>
+  <button class = "yes"     id = "maths">       Math      </button>
+  <button class = "yes"     id = "sleeping">    Sleeping  </button>
+  <button class = "yes"     id = "code">        Code      </button>
+ <!-- <input type="checkbox" id = "checkbox">-->
+  <br/>
+  <p></p>
+</template>
+
+<template name="exampleMap"> 
+  <button class = "confirm-button"> Confirm </button>
+  <button class = "remove-button">  Remove  </button>
+  <div class="map-container" id = "exampleMap">
+    {{> googleMap name="exampleMap" options=exampleMapOptions}}
+  </div>
+</template>
