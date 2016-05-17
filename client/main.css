@@ -4,7 +4,7 @@
   	max-width: 	100%;
   	height: 	500px;
   	position: 	absolute;
-  	left: 		40px;
+  	left: 		10px;
   	top: 		180px;
 }
 
@@ -29,11 +29,11 @@
     background-color:	#97FFFF;
 }
 .p-text {
-    width:				400px; 
+    width:				300px; 
     height: 			560px; 
-    background-color:	#1FFFFF; 
+    background-color:	#FFFFFA; 
     position: 			absolute; 
-    left: 				900px; 
+    left: 				820px; 
     top:				120px;
 }
 .confirm-button {
@@ -51,3 +51,34 @@
     top: 				112px;
     width: 				100px;
 }
+.form-register {
+    width:              150px; 
+    height:             500px; 
+    background-color:   #FFFFD2; 
+    position:           absolute; 
+    left:               1150px; 
+    top:                135px;
+}
+.register-button {
+    width:              100px;
+    height:             20px;
+    background-color:   #FFFFF5;
+}
+.display-button {
+    width:              100px;
+    height:             20px;
+    background-color:   #FFFFF5;
+}
+.Ryes {
+    width:              80px; 
+    height:             20px; 
+    background-color:   #FFFFFF;
+}
+.Rno {
+    width:              80px; 
+    height:             20px; 
+    background-color:   #97FFFF;
+}
+
+
+

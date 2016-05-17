@@ -1,14 +1,57 @@
 <head>
-  <title>simple</title>
+  <title>Search Map</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
+  <h1>Search person with the skills</h1>
   {{> infoprofil}}
   {{> exampleMap}}
+  {{> register}}
+
 </body>
 
+<template name="hello">  
+  <h1>Hello World!</h1>  
+  {{greeting}}
+</template>
+
+<template name = "register">
+  <form class = "form-register">
+    <div >
+      <p> Your first name: </p>
+      <input type = "text" name = "firstName" id = "FN"/>
+    </div>
+    <div>
+      <p>  Your last name: </p>
+      <input type = "text" name = "lastName"  id = "LN"/>
+    </div>
+    <div>
+      <p>       Your city: </p>
+      <input type = "text" name = "city"      id = "CT"/>
+    </div>
+    <div>
+      <p>    Your address: </p>
+      <input type = "text" name = "address"   id = "AD"/>
+    </div>
+    <div>
+        <p>Your skills:</p>
+        <input type = "button"   class = "Ryes"     id = "Rlangage"  value = "langage"/>
+        <input type = "button"   class = "Ryes"     id = "Rtondre"   value = "tondre"/>    
+        <input type = "button"   class = "Ryes"     id = "Rpeindre"  value = "peindre"/>   
+        <input type = "button"   class = "Ryes"     id = "Rcafe"     value = "cafe"/>       
+        <input type = "button"   class = "Ryes"     id = "Rarroser"  value = "arroser"/>     
+        <input type = "button"   class = "Ryes"     id = "Rmaths"    value = "maths"/>      
+        <input type = "button"   class = "Ryes"     id = "Rmonter"   value = "monter"/>     
+        <input type = "button"   class = "Ryes"     id = "Rcode"     value = "code"/>        
+    </div>
+    <div>
+      <p>                                  </p>
+      <input type = "button"    class = "register-button"    id = "RB" value = "Register"/>
+      <input type = "button"    class = "display-button"     id = "DB" value = "Display"/>
+    </div>
+    </form>
+</template>
 
 <template name = "infoprofil">
 
