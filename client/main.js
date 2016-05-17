@@ -4,12 +4,27 @@ import './main.html';
 
 //-------------- here is the data of profiles of each person
 var profil = [
-	{"firstName": "Floren", 		"lastName": "CLAPIE", 	"address": "43 Rue Adrien, Lemoine", 			"city": "Lemoine",    	"skills": ["tondre", "peindre", "code"]},
-	{"firstName": "Zhaojun", 		"lastName": "HAO", 		"address": "La Croix Saint-Sylvère, Cergy", 	"city": "Cergy"	,		"skills": ["sleeping", "dota", "code", "maths"]},
-	{"firstName": "Rui",			"lastName": "LI",		"address": "7 Les Chenes d'Or, Cergy",			"city": "Cergy"	,		"skills": ["dota", "cafe", "peindre", "code", "tondre"]},
-	{"firstName": "Huaiyu",			"lastName": "YANG",		"address": "La Croix Saint-Sylvère, Cergy",		"city": "Cergy"	,		"skills": ["sleeping", "LOL", "maths"]},
-	{"firstName": "Bernard",		"lastName": "GLONNEAU",	"address": "1 Avenue du Parc, Cergy",			"city": "Cergy"	,		"skills": ["code", "peindre", "cafe"]},
-	{"firstName": "Jean-Paul",		"lastName": "FOREST",   "address": "1 Avenue du Parc, Cergy",			"city": "Cergy"	,		"skills": ["cafe", "maths", "LOL"]}
+	{	"firstName": "Floren", 		"lastName": "CLAPIE", 	"address": "43 Rue Adrien, Lemoine", 			
+		"city": "Lemoine",    		"skills": ["tondre",	"peindre",	"arroser",	"monter"]},
+
+	{	"firstName": "Zhaojun", 	"lastName": "HAO", 		"address": "La Croix Saint-Sylvère, Cergy", 	
+		"city": "Cergy"	,			"skills": ["arroser", 	"langage", 	"code", 	"maths"]},
+
+	{	"firstName": "Rui",			"lastName": "LI",		"address": "7 Les Chenes d'Or, Cergy",			
+		"city": "Cergy"	,			"skills": ["cafe",	 	"peindre", 	"code", 	"tondre"]},
+
+	{	"firstName": "Huaiyu",		"lastName": "YANG",		"address": "La Croix Saint-Sylvère, Cergy",		
+		"city": "Cergy"	,			"skills": ["monter", 	"arroser", 	"maths",	"peindre"]},
+
+	{	"firstName": "Bernard",		"lastName": "GLONNEAU",	"address": "1 Avenue du Parc, Cergy",			
+		"city": "Cergy"	,			"skills": ["code", 		"peindre", 	"cafe",		"maths"]},
+
+	{	"firstName": "Wenyuan",		"lastName": "ZHANG",   "address":  "6, Avenue du Ponceau, Cergy",			
+		"city": "Cergy"	,			"skills": ["langage", 	"code", 	"monter"]},
+
+	{	"firstName": "Wenyuan",		"lastName": "ZHANG",   "address":  "4b les Touleuses Mauves, Cergy",			
+		"city": "Cergy"	,			"skills": ["code", 		"arroser", 	"monter",	"peindre"]},	
+
 ];
 
 var test = ["aa", "ss", "ssds"];
@@ -97,8 +112,6 @@ Template.exampleMap.helpers({
       	}
     }
 });	 
-
-		//
 
 var marker;
 var m  =  [];
@@ -228,7 +241,7 @@ Template.exampleMap.events ({
 			var t1	=	"Number ";
 			var t2	=	" who matches the options is：";
 			var t3	=	" ";
-			var t4	=	"\nThe adress of this person is：";
+			var t4	=	"\nThe address of this person is：";
 			var t5	=	"\n";
 			var t6	=	"_________________________________________________";
 			var text = t1+n+t2+needs[i].firstName+t3+needs[i].lastName+t4+needs[i].address+t5+t6+t5;
