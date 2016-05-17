@@ -9,9 +9,7 @@ For the system Linux/OSX, use the commande
 
 to install the framwork meteor whihc can be used in both front-end and back-end in JavaScript.
 
-Then we need use the googleMap APIS, here I use this commande to install the files to make me use the GoogleMap APIS v3.  
-
-`$ meteor add dburles:google-maps`  
+Then we need use the googleMap APIS, here I have installed the packages in the folder.
 
 ##REALIZATION
 Use the commandes below:  
