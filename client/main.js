@@ -2,22 +2,23 @@ import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 import './main.html';
 
+
 //-------------- this variable is for using in the fonction or methodes
-var needs 				= 	[];
-var profilDeal  	=   [];
-var option				=		[];
-var count 				= 	0;
-var addr 					=		[];
-var Rskills 			=		[];
-var butSkills   	=   [
+var needs 			= 	[];
+var profilDeal  =   [];
+var option			=		[];
+var count 			= 	0;
+var addr 				=		[];
+var Rskills 		=		[];
+var butSkills   =   [
 	"langage", "tondre", "peindre", "cafe", "arroser", "maths", "monter", "code"
 ];
-var butSkillsR		=   [
+var butSkillsR	=   [
 	"Rlangage", "Rtondre", "Rpeindre", "Rcafe", "Rarroser", "Rmaths", "Rmonter", "Rcode"
 ];
 
-//-------------- here is the data of profiles of each person
-var profil = [
+//-------------- here is the data of profiles of each person, but they are the static data
+/*var profil = [
 	{	"firstName": "Floren", 		"lastName": "CLAPIE", 	"address": "43 Rue Adrien, Lemoine", 			
 		"city": "Lemoine",    		"skills": ["tondre",	"peindre",	"arroser",	"monter"]},
 
@@ -39,7 +40,7 @@ var profil = [
 	{	"firstName": "Wenyuan",		"lastName": "ZHANG",   "address":  "4b les Touleuses Mauves, Cergy",			
 		"city": "Cergy"	,			"skills": ["code", 		"arroser", 	"monter",	"peindre"]},	
 
-];
+];*/
 // function of adding the skills chosen in the register
 function addButtonSkills (x) {
 	var y = -1;
@@ -104,6 +105,8 @@ Template.register.events ({
 			city: 			cT,
 			skills: 		storeSkills
 		}
+		// add the person into the MongoDB
+		Posts.insert(addPerson);
 		// add the person into the array JSON
 		var l =	profil.length;
 		profil.push(addPerson);
@@ -278,10 +281,15 @@ Template.exampleMap.events ({
 	// event of clicking the button 'Confirm' for searching and marking
 	"click .confirm-button": function (event, template) {
 
-		var city 	=	document.getElementById("city").value;
-
+		var city 		=	document.getElementById("city").value;
+		var byCity	=	city;
+		/*
 		profilDeal 	=	profil;
 		needs				=	profil;
+		*/
+		profilDeal	=	Posts.find({city:byCity}).fetch();	// get the data from the database named posts
+		needs				=	profilDeal;
+		alert(needs[1].address);
 		// removing the markers marked
 		removeMarkerAll(marker);
 		var choose 	= 	[];
@@ -346,12 +354,11 @@ Template.exampleMap.events ({
 				var a 	= 	document.getElementById(id);
 				a.className = "yes";	 
 			}
-			addr 				=		[];
-			count 			= 	0;
-			profilDeal 	= 	[];
-			needs				=		[]
-			choose			=		[];
-			cityName 		=		null;
+			addr 		=	[];
+			count 		= 	0;
+			profilDeal	= 	[];
+			needs		=	[]
+			choose		=	[];
 		} else {								// if no city input
 			alert("Please enter the city!!!!!!!");
 		}
