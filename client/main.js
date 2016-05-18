@@ -197,7 +197,6 @@ function searchAddr (addr, city) {
   geocoder.geocode (geocoderRequest, function(results, status) {  
    	if (status == google.maps.GeocoderStatus.OK) {  
        citylatlng = results[0].geometry.location; 
-       alert(city+" 经纬度是： "+citylatlng);
        // reload the map and display the city input
        if  (GoogleMaps.loaded()) {
        	GoogleMaps.create({
@@ -285,13 +284,10 @@ Template.exampleMap.events ({
 
 		var city 		=	document.getElementById("city").value;
 		var byCity	=	city;
-		/*
-		profilDeal 	=	profil;
-		needs				=	profil;
-		*/
+
 		profilDeal	=	Posts.find({city:byCity}).fetch();	// get the data from the database named posts
 		needs				=	profilDeal;
-		alert(needs[1].address);
+
 		// removing the markers marked
 		removeMarkerAll(marker);
 		var choose 	= 	[];
@@ -329,7 +325,7 @@ Template.exampleMap.events ({
 			// here storing the informations to display
 			var display = [];
 			var text1	= "The persons who has the skill(s)  ";
-			var text2   = " is/are:<br>___________________________________________<br>";
+			var text2   = " is/are:<br>__________________________________<br>";
 			var display = text1 + textSkill + text2;
 			for (var i=0; i < count; i++) {
 				n 				= 	i + 1;
@@ -338,7 +334,7 @@ Template.exampleMap.events ({
 				var t3		=		" ";
 				var t4		=		"<br>The address of this person is：<br>";
 				var t5		=		"<br>";
-				var t6		=		"_________________________________________________";
+				var t6		=		"____________________________________________";
 				var text 	= 	t1+n+t2+needs[i].firstName+t3+needs[i].lastName+t4+needs[i].address+t5+t6+t5;
 				display 	= 	display + text;
 			}
@@ -356,11 +352,11 @@ Template.exampleMap.events ({
 				var a 	= 	document.getElementById(id);
 				a.className = "yes";	 
 			}
-			addr 		=	[];
-			count 		= 	0;
+			addr 				=	[];
+			count 			= 	0;
 			profilDeal	= 	[];
-			needs		=	[]
-			choose		=	[];
+			needs				=	[]
+			choose			=	[];
 		} else {								// if no city input
 			alert("Please enter the city!!!!!!!");
 		}
