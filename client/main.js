@@ -107,10 +107,12 @@ Template.register.events ({
 		}
 		// add the person into the MongoDB
 		Posts.insert(addPerson);
+		/*
 		// add the person into the array JSON
 		var l =	profil.length;
 		profil.push(addPerson);
 		alert(profil[l].firstName+"啦啦啦啦"+profil[l].lastName);
+		*/
 		// reset all the buttons in the default state
 		for (var i in butSkillsR) {
 			var id 			=	butSkillsR[i];
