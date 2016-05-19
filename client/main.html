@@ -4,87 +4,145 @@
 </head>
 
 <body>
-  <h1>Search person with the skills</h1>
-  {{> infoprofil}}
-  {{> exampleMap}}
-  {{> register}}
-
+    <h1 class = "ui header">    Search person with the skills</h1>
+    {{> infoprofil}}
+  <div class="ui vertical stripe segment">
+    <div class="ui middle aligned stackable grid container">
+      <div class="row">
+        <div class="three wide column">
+          {{> displayPer}}
+        </div>
+        <div class="eight wide column">
+          <div class = "ui message">
+          {{> exampleMap}}
+        </div>
+        </div>
+        <div class="five wide right floated column">
+          <div class = "ui message">
+          {{> register}} 
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 
-<template name="hello">  
-  <h1>Hello World!</h1>  
-  {{greeting}}
+<template name = "register">
+  <div ui = "container">
+    <p>Your personal information:</p>
+    <div class = "ui message" >
+        <div class="ui right labeled left icon input">
+          <i class="tags icon"></i>
+          <input placeholder="Enter tags" type="text" name = "firstName" id = "FN">
+          <a class="ui tag label">
+            First name  
+          </a>
+        </div>
+    
+        <div class="ui right labeled left icon input">
+          <i class="tags icon"></i>
+          <input placeholder="Enter tags" type="text" name = "lastName" id = "LN">
+          <a class="ui tag label">
+            Last name   
+          </a>
+        </div>
+    
+        <div class="ui right labeled left icon input">
+          <i class="tags icon"></i>
+          <input placeholder="Enter tags" type="text" name = "city" id = "CT">
+          <a class="ui tag label">
+            Your city   
+          </a>
+        </div>
+   
+        <div class="ui right labeled left icon input">
+          <i class="tags icon"></i>
+          <input placeholder="Enter tags" type="text" name = "address" id = "AD">
+          <a class="ui tag label">
+            Your address
+          </a>
+        </div>
+    </div>
+    <div>
+      <p>Your skills:</p>
+
+      <div class = "ui cintainer">
+          <div class = "ui message">
+            <div class = "ui two buttons">
+             <input type = "button"  class = "ui positive button"   id = "Rlangage"  value = "langage"/>
+             <input type = "button"  class = "ui positive button"   id = "Rtondre"   value = "tondre"/> 
+            </div>
+          </div>
+          <div class = "ui message">
+            <div class = "ui two buttons">
+             <input type = "button"  class = "ui positive button"   id = "Rpeindre"  value = "peindre"/>   
+             <input type = "button"  class = "ui positive button"   id = "Rcafe"     value = "cafe"/> 
+            </div>
+          </div>
+          <div class = "ui message">
+            <div class = "ui two buttons">
+              <input type = "button"  class = "ui positive button"   id = "Rarroser"  value = "arroser"/>     
+              <input type = "button"  class = "ui positive button"   id = "Rmaths"    value = "maths"/>  
+            </div>
+          </div>
+          <div class = "ui message">
+            <div class = "ui two buttons">
+              <input type = "button"  class = "ui positive button"   id = "Rmonter"   value = "monter"/>     
+              <input type = "button"  class = "ui positive button"   id = "Rcode"     value = "code"/>
+            </div>
+          </div>      
+
+      <p>                                  </p>
+      <input type = "button"    class = "ui inverted blue button"    id = "RB" value = "Register"/>
+    </div>
+   </div> 
+ </div>
 </template>
 
-<template name = "register">
-  <form class = "form-register">
-    <div >
-      <p> Your first name: </p>
-      <input type = "text" name = "firstName" id = "FN"/>
-    </div>
-    <div>
-      <p>  Your last name: </p>
-      <input type = "text" name = "lastName"  id = "LN"/>
-    </div>
-    <div>
-      <p>       Your city: </p>
-      <input type = "text" name = "city"      id = "CT"/>
-    </div>
-    <div>
-      <p>    Your address: </p>
-      <input type = "text" name = "address"   id = "AD"/>
-    </div>
-    <div>
-        <p>Your skills:</p>
-        <input type = "button"   class = "Ryes"     id = "Rlangage"  value = "langage"/>
-        <input type = "button"   class = "Ryes"     id = "Rtondre"   value = "tondre"/>    
-        <input type = "button"   class = "Ryes"     id = "Rpeindre"  value = "peindre"/>   
-        <input type = "button"   class = "Ryes"     id = "Rcafe"     value = "cafe"/>       
-        <input type = "button"   class = "Ryes"     id = "Rarroser"  value = "arroser"/>     
-        <input type = "button"   class = "Ryes"     id = "Rmaths"    value = "maths"/>      
-        <input type = "button"   class = "Ryes"     id = "Rmonter"   value = "monter"/>     
-        <input type = "button"   class = "Ryes"     id = "Rcode"     value = "code"/>        
-    </div>
-    <div>
-      <p>                                  </p>
-      <input type = "button"    class = "register-button"    id = "RB" value = "Register"/>
-      <input type = "button"    class = "display-button"     id = "DB" value = "Display"/>
-    </div>
-    </form>
+
+<template name = "displayPer">
+  <div class = "ui container" id = "text">
+    <p>Please choose the city and skills...</p>
+  </div> 
 </template>
+
 
 <template name = "infoprofil">
 
-  <p id = "test">
-    To find the person who you want
-    Please click the button.
-  </p>
+  <div class = "row">
+    <div class = "colomn">
+    </div>
+  </div>
 
-  <p class = "p-text" id = "text">
-    Please have a choice...
-  </p> 
+  <div class = "row">
+    <div class = "colomn">
+      <div class="ui message">
+        <div>
+            <div class="ui action left icon input">
+              <i class="search icon"></i>
+              <input type="text" placeholder="Search..." id = "city">
+              <div class="ui teal button">Search</div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <form>
-    <input type="text" name="Input" id = "city" />
-  </form>
+  <div class = "ui eight buttons">
+    <button class = "ui basic button"     id = "langage">     Langage   </button>
+    <button class = "ui basic button"     id = "tondre">    Tondre    </button>
+    <button class = "ui basic button"     id = "peindre">     Peindre   </button>
+    <button class = "ui basic button"     id = "cafe">        Cafe      </button>
+    <button class = "ui basic button"     id = "arroser">     Arroser   </button>
+    <button class = "ui basic button"     id = "maths">       Maths     </button>
+    <button class = "ui basic button"     id = "monter">      Monter    </button>
+    <button class = "ui basic button"     id = "code">        Code      </button>
+  </div>
 
-  <button class = "yes"     id = "langage">     Langage   </button>
-  <button class = "yes"     id = "tondre">      Tondre    </button>
-  <button class = "yes"     id = "peindre">     Peindre   </button>
-  <button class = "yes"     id = "cafe">        Cafe      </button>
-  <button class = "yes"     id = "arroser">     Arroser   </button>
-  <button class = "yes"     id = "maths">       Maths     </button>
-  <button class = "yes"     id = "monter">      Monter    </button>
-  <button class = "yes"     id = "code">        Code      </button>
- <!-- <input type="checkbox" id = "checkbox">-->
-  <br/>
-  <p></p>
 </template>
 
 <template name="exampleMap"> 
-  <button class = "confirm-button"> Confirm </button>
-  <button class = "remove-button">  Remove  </button>
-  <div class="map-container" id = "exampleMap">
+  <div class = "map-container" id = "exampleMap">
     {{> googleMap name="exampleMap" options=exampleMapOptions}}
   </div>
 </template>

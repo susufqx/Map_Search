@@ -2,7 +2,6 @@ import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 import './main.html';
 
-
 //-------------- this variable is for using in the fonction or methodes
 var needs 			= 	[];
 var profilDeal  =   [];
@@ -10,37 +9,14 @@ var option			=		[];
 var count 			= 	0;
 var addr 				=		[];
 var Rskills 		=		[];
+// the skills name of the search part
 var butSkills   =   [
 	"langage", "tondre", "peindre", "cafe", "arroser", "maths", "monter", "code"
 ];
+// the skills name of the register part
 var butSkillsR	=   [
 	"Rlangage", "Rtondre", "Rpeindre", "Rcafe", "Rarroser", "Rmaths", "Rmonter", "Rcode"
 ];
-
-//-------------- here is the data of profiles of each person, but they are the static data
-/*var profil = [
-	{	"firstName": "Floren", 		"lastName": "CLAPIE", 	"address": "43 Rue Adrien, Lemoine", 			
-		"city": "Lemoine",    		"skills": ["tondre",	"peindre",	"arroser",	"monter"]},
-
-	{	"firstName": "Zhaojun", 	"lastName": "HAO", 		"address": "La Croix Saint-Sylvère, Cergy", 	
-		"city": "Cergy"	,			"skills": ["arroser", 	"langage", 	"code", 	"maths"]},
-
-	{	"firstName": "Rui",			"lastName": "LI",		"address": "7 Les Chenes d'Or, Cergy",			
-		"city": "Cergy"	,			"skills": ["cafe",	 	"peindre", 	"code", 	"tondre"]},
-
-	{	"firstName": "Huaiyu",		"lastName": "YANG",		"address": "La Croix Saint-Sylvère, Cergy",		
-		"city": "Cergy"	,			"skills": ["monter", 	"arroser", 	"maths",	"peindre"]},
-
-	{	"firstName": "Bernard",		"lastName": "GLONNEAU",	"address": "1 Avenue du Parc, Cergy",			
-		"city": "Cergy"	,			"skills": ["code", 		"peindre", 	"cafe",		"maths"]},
-
-	{	"firstName": "Wenyuan",		"lastName": "ZHANG",   "address":  "6, Avenue du Ponceau, Cergy",			
-		"city": "Cergy"	,			"skills": ["langage", 	"code", 	"monter"]},
-
-	{	"firstName": "Wenyuan",		"lastName": "ZHANG",   "address":  "4b les Touleuses Mauves, Cergy",			
-		"city": "Cergy"	,			"skills": ["code", 		"arroser", 	"monter",	"peindre"]},	
-
-];*/
 // function of adding the skills chosen in the register
 function addButtonSkills (x) {
 	var y = -1;
@@ -60,26 +36,26 @@ function addButtonSkills (x) {
 }
 
 Template.register.events ({
-	"click .Ryes": function (event, template) {
+	"click .ui.positive.button": function (event, template) {
 		var a = document.getElementById(event.target.id);
 		var judge = addButtonSkills(event.target.value);
 		if (judge === false) {
-			a.className	=	"Ryes";
+			a.className	=	"ui positive button";
 		}else {
-			a.className	=	"Rno";
+			a.className	=	"ui negative button";
 		}
 	},
-	"click .Rno": function (event, template) {
+	"click .ui.negative.button": function (event, template) {
 		var a = document.getElementById(event.target.id);
 		var judge = addButtonSkills(event.target.value);
 		if (judge === false) {
-			a.className	=	"Ryes";
+			a.className	=	"ui positive button";
 		}else {
-			a.className	=	"Rno";
+			a.className	=	"ui negative button";
 		}
 	},
 	// clicking the button to add the informations
-	"click .register-button": function (event, template) {
+	"click .ui.inverted.blue.button": function (event, template) {
 		var storeSkills	=	[];
 		// storing the skills you want to add
 		for (var i in Rskills) {
@@ -101,28 +77,28 @@ Template.register.events ({
 		var addPerson = {
 			firstName: 		fN,
 			lastName: 		lN,
-			address: 		aD,
-			city: 			cT,
-			skills: 		storeSkills
+			address: 			aD,
+			city: 				cT,
+			skills: 			storeSkills
 		}
 		// add the person into the MongoDB
-		Posts.insert(addPerson);
-		/*
-		// add the person into the array JSON
-		var l =	profil.length;
-		profil.push(addPerson);
-		alert(profil[l].firstName+"啦啦啦啦"+profil[l].lastName);
-		*/
+		if (Posts.findOne(addPerson)) {
+			alert("You have registered before!!!");
+		} else {
+			Posts.insert(addPerson);
+		}
 		// reset all the buttons in the default state
 		for (var i in butSkillsR) {
 			var id 			=	butSkillsR[i];
 			var a 			= document.getElementById(id);
-			a.className = "Ryes";	 
+			a.className = "ui positive button";	 
 		}
+		// all the texts are need to be void
+		document.getElementById("FN").value = null;
+		document.getElementById("LN").value = null;
+		document.getElementById("CT").value = null;
+		document.getElementById("AD").value = null;
 	},
-	"click .display-button": function (event, template) {
-
-	}
 });
 
 // function of change the color of the button, if color changed the skills will be chosen or not
@@ -144,22 +120,22 @@ function changeButton(x) {
 }
 
 Template.infoprofil.events({
-	"click .yes": function (event, template) {
+	"click .ui.basic.button": function (event, template) {
 		var a = document.getElementById(event.target.id);
 		var judge = changeButton(event.target.id);
 		if (judge === false) {
-			a.className	=	"yes";
+			a.className	=	"ui basic button";
 		}else {
-			a.className	=	"no";
+			a.className	=	"ui primary button";
 		}
 	},
-	"click .no": function (event, template) {
+	"click .ui.primary.button": function (event, template) {
 		var a = document.getElementById(event.target.id);
 		var judge = changeButton(event.target.id);
 		if (judge === false) {
-			a.className	=	"yes";
+			a.className	=	"ui basic button";
 		}else {
-			a.className	=	"no";
+			a.className	=	"ui primary button";
 		}
 	}
 });
@@ -230,7 +206,6 @@ function searchAddr (addr, city) {
 
 // function of marking
 function addMarkerAll (latlng, number) {	 	
-  //alert("Hello");
   marker = new google.maps.Marker({
 		position: 	latlng,
    	//map: 		GoogleMaps.maps.exampleMap.instance,
@@ -273,14 +248,11 @@ Template.exampleMap.helpers({
     }
 });	
 
-
-Template.exampleMap.events ({
+/**********************************************/
+Template.infoprofil.events ({
 	// event of clicking the button 'Remove' for removing the markers in the map
-	"click .remove-button": function (event, template) {
-		removeMarkerAll(marker);
-	},
 	// event of clicking the button 'Confirm' for searching and marking
-	"click .confirm-button": function (event, template) {
+	"click .ui.teal.button": function (event, template) {
 
 		var city 		=	document.getElementById("city").value;
 		var byCity	=	city;
@@ -301,7 +273,6 @@ Template.exampleMap.events ({
 					delete option[i]; // we can't use option array because is contains the sign ','
 				}
 			}
-
 			var len  			=	choose.length;
 			var textSkill	=	"";							// storing all the skills by type String
 			for (var i=0; i < len; i++) {
@@ -325,17 +296,16 @@ Template.exampleMap.events ({
 			// here storing the informations to display
 			var display = [];
 			var text1	= "The persons who has the skill(s)  ";
-			var text2   = " is/are:<br>__________________________________<br>";
+			var text2   = " is/are:<br>";
 			var display = text1 + textSkill + text2;
 			for (var i=0; i < count; i++) {
 				n 				= 	i + 1;
-				var t1		=		"Number ";
+				var t1		=		"<div class = \"ui message\">Number ";
 				var t2		=		" who matches the options is：<br>";
 				var t3		=		" ";
 				var t4		=		"<br>The address of this person is：<br>";
-				var t5		=		"<br>";
-				var t6		=		"____________________________________________";
-				var text 	= 	t1+n+t2+needs[i].firstName+t3+needs[i].lastName+t4+needs[i].address+t5+t6+t5;
+				var t5		=		"<br></div>";
+				var text 	= 	t1+n+t2+needs[i].firstName+t3+needs[i].lastName+t4+needs[i].address+t5+t5;
 				display 	= 	display + text;
 			}
 			// display in the web pages by inserting the informations into the fichier html
@@ -350,11 +320,11 @@ Template.exampleMap.events ({
 			for (var i in butSkills) {
 				var id 	=		butSkills[i];
 				var a 	= 	document.getElementById(id);
-				a.className = "yes";	 
+				a.className = "ui basic button";	 
 			}
 			addr 				=	[];
-			count 			= 	0;
-			profilDeal	= 	[];
+			count 			= 0;
+			profilDeal	= [];
 			needs				=	[]
 			choose			=	[];
 		} else {								// if no city input
