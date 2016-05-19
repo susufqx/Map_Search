@@ -4,36 +4,48 @@
 </head>
 
 <body>
-    <h1 class = "ui header">    Search person with the skills</h1>
-    {{> infoprofil}}
-  <div class="ui vertical stripe segment">
-    <div class="ui middle aligned stackable grid container">
+ <div class="pusher">
+ <div class="ui inverted vertical masthead center aligned segment">
+    <div class="ui text container">
+      <h1 class="ui inverted header">
+        Search the person you want
+      </h1>
+    </div>
+  </div>
+
+  {{> infoprofil}}
+
+  <div class="ui vertical stripe quote segment">
+    <div class="ui three column grid">
       <div class="row">
         <div class="three wide column">
           {{> displayPer}}
         </div>
         <div class="eight wide column">
           <div class = "ui message">
-          {{> exampleMap}}
-        </div>
+            {{> exampleMap}}
+          </div>
         </div>
         <div class="five wide right floated column">
           <div class = "ui message">
-          {{> register}} 
-        </div>
+           {{> register}} 
+          </div>
         </div>
       </div>
     </div>
   </div>
+
+ {{> endPage}}
+</div>
 </body>
 
 <template name = "register">
-  <div ui = "container">
+  <div class = "ui container">
     <p>Your personal information:</p>
     <div class = "ui message" >
         <div class="ui right labeled left icon input">
           <i class="tags icon"></i>
-          <input placeholder="Enter tags" type="text" name = "firstName" id = "FN">
+          <input placeholder="Firsr name" type="text" name = "firstName" id = "FN">
           <a class="ui tag label">
             First name  
           </a>
@@ -41,7 +53,7 @@
     
         <div class="ui right labeled left icon input">
           <i class="tags icon"></i>
-          <input placeholder="Enter tags" type="text" name = "lastName" id = "LN">
+          <input placeholder="Last name" type="text" name = "lastName" id = "LN">
           <a class="ui tag label">
             Last name   
           </a>
@@ -49,15 +61,15 @@
     
         <div class="ui right labeled left icon input">
           <i class="tags icon"></i>
-          <input placeholder="Enter tags" type="text" name = "city" id = "CT">
+          <input placeholder="Your city" type="text" name = "city" id = "CT">
           <a class="ui tag label">
-            Your city   
+            Your city    
           </a>
         </div>
    
         <div class="ui right labeled left icon input">
           <i class="tags icon"></i>
-          <input placeholder="Enter tags" type="text" name = "address" id = "AD">
+          <input placeholder="Your address" type="text" name = "address" id = "AD">
           <a class="ui tag label">
             Your address
           </a>
@@ -108,26 +120,18 @@
 
 
 <template name = "infoprofil">
-
-  <div class = "row">
-    <div class = "colomn">
-    </div>
-  </div>
-
-  <div class = "row">
-    <div class = "colomn">
-      <div class="ui message">
+  <div class = "ui message">
+      
         <div>
+          <div class = "search-move">
             <div class="ui action left icon input">
               <i class="search icon"></i>
               <input type="text" placeholder="Search..." id = "city">
               <div class="ui teal button">Search</div>
             </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-
+      
   <div class = "ui eight buttons">
     <button class = "ui basic button"     id = "langage">     Langage   </button>
     <button class = "ui basic button"     id = "tondre">    Tondre    </button>
@@ -138,7 +142,7 @@
     <button class = "ui basic button"     id = "monter">      Monter    </button>
     <button class = "ui basic button"     id = "code">        Code      </button>
   </div>
-
+</div>
 </template>
 
 <template name="exampleMap"> 
@@ -146,3 +150,47 @@
     {{> googleMap name="exampleMap" options=exampleMapOptions}}
   </div>
 </template>
+
+
+<template name = "endPage">
+    <div class="ui inverted vertical footer segment">
+    <div class="ui container">
+      <div class="ui stackable inverted divided equal height stackable grid">
+        <div class="two wide column">
+        </div>
+        <!-- the part of links -->
+        <div class="two wide column">
+          <div class = "top-p">
+          <h4 class="ui inverted header">Links</h4>
+          <div class="ui inverted link list">
+            <a href="http://www.google.com" class="item">Google</a>
+            <a href="http://map.google.com" class="item">Map</a>
+          </div>
+        </div>
+        </div>
+        <!-- the part of services -->
+        <div class="two wide column">
+          <div class = "top-p">
+          <h4 class="ui inverted header">Services</h4>
+          <div class="ui inverted link list">
+            <a href="http://semantic-ui.com" class="item">Semantic-UI</a>
+            <a href="https://www.meteor.com" class="item">Meteor</a>
+            <a href="http://www.w3schools.com" class="item">W3School</a>
+          </div>
+        </div>
+        </div>
+        <!-- the part of declaration -->
+        <div class="seven wide column">
+          <div class = "top-p">
+          <h4 class="ui inverted header">Declaration</h4>
+          <p>This website is created by LI Rui which uses the frameworks of <br>front-end by semantic-ui and back-end by meteor.</p>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+
+
+
