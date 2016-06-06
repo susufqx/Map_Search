@@ -22,4 +22,3 @@ insecure                # Allow all DB writes from clients (for prototyping)
 dburles:google-maps
 semantic:ui
 flemay:less-autoprefixer
-nooitaf:semantic-ui
