@@ -71,7 +71,7 @@ Template.register.events ({
 		var cT = document.getElementById("CT").value;
 		var aD = document.getElementById("AD").value;
 		var p  = ", ";
-		// the element address contains the city 
+		// the element address contains the city
 		aD 	=aD + p + cT;
 		// set a variable of the information of a person
 		var addPerson = {
@@ -91,7 +91,7 @@ Template.register.events ({
 		for (var i in butSkillsR) {
 			var id 			=	butSkillsR[i];
 			var a 			= document.getElementById(id);
-			a.className = "ui positive button";	 
+			a.className = "ui positive button";
 		}
 		// all the texts are need to be void
 		document.getElementById("FN").value = null;
@@ -155,24 +155,24 @@ function filtration(x) {
 	var skill  =  x;
 	for (var person in profilDeal) {
 		for (var sk in profilDeal[person].skills) {
-			if (profilDeal[person].skills[sk] === skill) {	
+			if (profilDeal[person].skills[sk] === skill) {
 				var add = profilDeal[person];
 				needs.push(add);
 				count ++ ;
-			} 
+			}
 		}
 	}
 	return 0;
 }
-// function of searching the city and the address of each person chosen  
+// function of searching the city and the address of each person chosen
 function searchAddr (addr, city) {
  	number 	=	1;			//	store the number of the persons
  	var geocoder = new google.maps.Geocoder();
  	// search the city
  	var geocoderRequest	=	{address:city};
-  geocoder.geocode (geocoderRequest, function(results, status) {  
-   	if (status == google.maps.GeocoderStatus.OK) {  
-       citylatlng = results[0].geometry.location; 
+  geocoder.geocode (geocoderRequest, function(results, status) {
+   	if (status == google.maps.GeocoderStatus.OK) {
+       citylatlng = results[0].geometry.location;
        // reload the map and display the city input
        if  (GoogleMaps.loaded()) {
        	GoogleMaps.create({
@@ -184,28 +184,28 @@ function searchAddr (addr, city) {
   				}
 				});
      	}
-   	} else {  
-   		alert(interGeoAnalysisFailed);  
-    }  
-   });	
+   	} else {
+   		alert(interGeoAnalysisFailed);
+    }
+   });
  	// search the address and mark them in the map
  	for (var i in addr) {
  		var a 				=	addr[i];
  		var geocoderRequest	=	{address:a};
- 		geocoder.geocode (geocoderRequest, function(results, status) {  
-        	if (status == google.maps.GeocoderStatus.OK) {  
-            	var latlng = results[0].geometry.location; 
+ 		geocoder.geocode (geocoderRequest, function(results, status) {
+        	if (status == google.maps.GeocoderStatus.OK) {
+            	var latlng = results[0].geometry.location;
             	addMarkerAll(latlng, number);
-        	} else {  
-            	alert(interGeoAnalysisFailed);  
-        	}  
-    	}); 
+        	} else {
+            	alert(interGeoAnalysisFailed);
+        	}
+    	});
     	number ++;
     }
-} 
+}
 
 // function of marking
-function addMarkerAll (latlng, number) {	 	
+function addMarkerAll (latlng, number) {
   marker = new google.maps.Marker({
 		position: 	latlng,
    	//map: 		GoogleMaps.maps.exampleMap.instance,
@@ -226,7 +226,7 @@ function removeMarkerAll (marker) {
 		var l = m.length;
 		m.splice(1, l-1);
 	}
-} 	
+}
 
 // start-up the Google Map
 Meteor.startup(function() {
@@ -246,7 +246,7 @@ Template.exampleMap.helpers({
         	};
       	}
     }
-});	
+});
 
 /**********************************************/
 Template.infoprofil.events ({
@@ -320,7 +320,7 @@ Template.infoprofil.events ({
 			for (var i in butSkills) {
 				var id 	=		butSkills[i];
 				var a 	= 	document.getElementById(id);
-				a.className = "ui basic button";	 
+				a.className = "ui basic button";
 			}
 			addr 				=	[];
 			count 			= 0;
@@ -332,4 +332,3 @@ Template.infoprofil.events ({
 		}
 	}
 });
-
